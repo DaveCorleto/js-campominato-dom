@@ -1,0 +1,100 @@
+body {
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    height: 100px;
+    padding-left: 40%;
+    padding-right: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+}
+
+.logo img {
+    max-width: 100px;
+}
+.logo {    
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.container {
+    margin: auto;
+    width: 60%;
+}
+.riga {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;  
+    margin: auto;
+}
+
+.container, .row {
+    box-sizing: border-box;
+}
+
+.container {
+    /* overflow-y: hidden; */
+    /* scroll-behavior: inherit; */
+}
+
+/* Creo classi di square diversi a seconda del livello */
+
+.beginner {
+    width: calc(100% / 10);
+}
+.medium {
+    width: calc(100% / 9);
+}
+.hard {
+    width: calc(100% / 7);
+}
+
+/* Centratura dei numeri...  */
+
+.beginner, .medium, .hard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.square {
+    aspect-ratio: 1/1;
+    border: 1px solid black;
+}
+
+
+
+
+
+main {
+    width: 100%;
+    margin: auto;
+    min-height: calc(100vh - 180px);
+    background-color: lightgreen;
+    margin-bottom: 80px;
+
+}
+
+footer {
+    height: 80px;
+    width:100%;
+    margin-top: 80px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
+    z-index: 500;
+    background-color: white;
+}
