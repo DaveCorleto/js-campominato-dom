@@ -41,10 +41,6 @@ header {
     box-sizing: border-box;
 }
 
-.container {
-    /* overflow-y: hidden; */
-    /* scroll-behavior: inherit; */
-}
 
 /* Creo classi di square diversi a seconda del livello */
 
@@ -72,7 +68,15 @@ header {
     border: 1px solid black;
 }
 
+/* Cella Cliccata  */
 
+.clicked {
+    background-color: blue;
+}
+
+.boom {
+    background-color: red;
+}
 
 
 
