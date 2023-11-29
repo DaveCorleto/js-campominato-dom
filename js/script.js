@@ -1,3 +1,12 @@
+// Array vuoto per le bombe
+let bombs = [];
+
+// Variabile per la scelta del livello di difficoltà da parte dell'utente
+let userChoice;
+
+// Variabile per il numero massimo di celle in base al livello di difficoltà
+let squareNumber;
+
 // Seleziono l'elemento con id "grid"
 var container = document.getElementById("grid");
 
@@ -5,86 +14,56 @@ var container = document.getElementById("grid");
 var playButton = document.getElementById("playButton");
 
 // Aggiungo un event listener per l'evento "click" al pulsante "play"
-
 playButton.addEventListener("click", function () {
     // Ottengo il valore del livello di difficoltà selezionato
-
-    let userChoice = document.getElementById("livelloDifficoltà").value;
-
+    userChoice = document.getElementById("livelloDifficoltà").value;
     console.log("Livello di difficoltà selezionato:", userChoice);
 
-    // se la scelta dell'utente è beginner:
-
-    // Tolgo tutto quello che c'era prima (se c'era) 
-
+    // Pulisco il contenuto precedente nel container
     container.innerHTML = "";
 
+    // Genero le celle in base al livello di difficoltà selezionato
     if (userChoice === "beginner") {
+        squareNumber = 100;
         console.log("Creazione per il livello beginner");
-
-        // creo 100 elementi div
         for (var i = 1; i <= 100; i++) {
-            // Creazione di un nuovo elemento div
             var square = document.createElement("div");
-
-            // Aggiungo delle classi "square" e "beginner"
             square.classList.add("square", "beginner");
-
-            // Imposto del testo interno con il numero progressivo
             square.textContent = i;
-
-            // Aggiungo l'elemento al container
             container.appendChild(square);
         }
-    }
-
-    // se la scelta dell'utente è medium:
-
-    else if (userChoice === "medium") {
+    } else if (userChoice === "medium") {
+        squareNumber = 81;
         console.log("Creazione per il livello medium");
-
-        // tolgo tutti gli elementi precedenti 
-
-        container.innerHTML = "";
-
-        // creo 100 elementi div
         for (var i = 1; i <= 81; i++) {
-            // Creazione di un nuovo elemento div
             var square = document.createElement("div");
-
-            // Aggiungo delle classi "square" e "medium"
             square.classList.add("square", "medium");
-
-            // Imposto del testo interno con il numero progressivo
             square.textContent = i;
-
-            // Aggiungo l'elemento al container
+            container.appendChild(square);
+        }
+    } else if (userChoice === "hard") {
+        squareNumber = 49;
+        console.log("Creazione per il livello hard");
+        for (var i = 1; i <= 49; i++) {
+            var square = document.createElement("div");
+            square.classList.add("square", "hard");
+            square.textContent = i;
             container.appendChild(square);
         }
     }
 
-    // se la scelta dell'utente è hard:
+    // Pulisco l'array delle bombe
+    bombs = [];
 
-    else if (userChoice === "hard") {
-        console.log("Creazione per il livello hard");
+    // Genero 16 numeri casuali per le bombe
+    while (bombs.length < 16) {
+        let bombNumber = Math.floor(Math.random() * squareNumber) + 1;
 
-        // Tolgo tutto... 
-
-        container.innerHTML = "";
-
-        // creo 100 elementi div
-        for (var i = 1; i <= 49; i++) {
-            // Creazione di un nuovo elemento div
-            var square = document.createElement("div");
-
-            // Aggiungo delle classi "square" e "hard"
-            square.classList.add("square", "hard");
-
-            // Imposto del testo interno con il numero progressivo
-            square.textContent = i;
-
-            // Aggiungo l'elemento al container
-            container.appendChild(square);
+        // Assicuro che il numero generato non sia già presente nell'array delle bombe
+        if (!bombs.includes(bombNumber)) {
+            bombs.push(bombNumber);
+            console.log("Il mio array contiene:", bombs);
         }
     }
 });
+
